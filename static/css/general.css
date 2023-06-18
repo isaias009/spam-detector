@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/templates/assets/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat-Italic';
+  src: url('/templates/assets/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #111B21;
+}

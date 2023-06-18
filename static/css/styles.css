@@ -1,0 +1,241 @@
+.title-project{
+  text-align: center;
+  margin-top: 2em;
+  color: #D7D7D7;
+  font-weight: 400;
+  font-size: 1em;
+  padding: 0.2em;
+}
+
+.contenedor{
+  display: flex;
+  width: 98%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80vh;
+}
+
+.show-option{
+  width: 75%;
+  padding: 2em 3em;
+  height: 100%;
+  overflow: auto;
+  background-image: url('/static/img/papyrus-dark.png');
+}
+
+
+
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding: 2em 1em;
+  background-color: rgba(255,255,255, 0.9);
+}
+
+.menu a{
+  display: inline-block;
+  padding: 0.8em 1em;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0.3em;
+}
+
+.menu a:hover{
+  background-color: rgba(0,0,0, 0.2);
+}
+
+.menu .active{
+  color: white;
+  background-color: rgba(0,0,0, 0.8);
+}
+
+
+.contendor-home{
+  display: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2em;
+}
+
+.contendor-home p{
+  margin-bottom: 1em;
+}
+
+.contendor-app{
+  display: none;
+  gap: 2em;
+  flex-direction: column;
+}
+
+.contendor-app .form-app{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  gap: 0.4em;
+}
+
+.contendor-app .form-app input,
+.contendor-app .form-app textarea{
+  width: 100%;
+  padding: 1em;
+  background-color: rgba(17, 27, 33, 0.86);
+  color: white;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  border-radius: 1em;
+  padding: 1.2em;
+  font-size: 1.2em;
+  border: solid 0.2em rgba(255,255,255, 0.1);
+}
+
+.contendor-app .form-app textarea{
+  min-width: 100%;
+  max-width: 100%;
+  height: 20em;
+  min-height: 20em;
+  max-height: 20em;
+}
+
+.contendor-app .form-app button{
+  border: none;
+  border-radius: 0.3em;
+  padding: 0.5em;
+  max-width: 10em;
+  font-weight: bold;
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+
+.contendor-mensajes{
+  display: none;
+}
+
+
+
+.mensajes-list{
+  display: flex;
+  gap: 1em;
+  list-style: none;
+  flex-direction: column;
+}
+
+.mensajes-list .msg{
+  background-color: rgba(17, 27, 33, 0.8);
+  border: solid 0.2em rgba(255,255,255, 0.05);
+  color: white;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-weight: 500;
+  padding: 1.5em 3em;
+  border-radius: 0.5em;
+}
+
+.mensajes-list .msg .date{
+  color: #D7D7D7;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.mensajes-list .msg .status{
+  padding: 0.5em 1em;
+  font-weight: 800;
+  margin-bottom: 10px;
+  border-radius: 0.2em;
+}
+
+.mensajes-list .msg .spam{
+  background-color: rgba(203, 67, 53, 0.7);
+}
+
+.mensajes-list .msg .ham{
+  color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.mensajes-list .msg-option{
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.mensajes-list .msg-option button{
+  padding: 0.3em 1em;
+  border-radius: 1em;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+}
+
+.mensajes-list .msg-option button:hover{
+  opacity: 0.5;
+}
+
+.mensajes-list .msg-option .btn-check{
+  background-color: #239B56;
+}
+
+.mensajes-list .msg-option .btn-wr{
+  background-color: #E67E22;
+}
+
+
+
+
+.table-dataset{
+  border-collapse: collapse;
+}
+
+.table-dataset tr:nth-child(even){
+  background-color: white;
+}
+
+.table-dataset tr:nth-child(odd){
+  background-color: #E8E9E9;
+}
+
+.table-dataset tr:first-child{
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 1.2em;
+}
+
+.table-dataset tr:first-child th{
+  padding: 0.6em;
+}
+
+.table-dataset tr td{
+  padding: 1em;
+  text-align: center;
+}
+
+.table-dataset .btn-select,
+.table-dataset .btn-select-del,
+.table-dataset .btn-select-selected{
+  display: inline-block;
+  border: none;
+  padding: 0.3em 0.5em;
+  margin: 0.1em;
+  border-radius: 1em;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+}
+
+.table-dataset .btn-select-del{
+  font-size: 1.2em;
+  background-color: rgb(203, 67, 53);
+  color: white;
+}
+
+.table-dataset .btn-select-selected{
+  color: #1E8449;
+  font-size: 2em;
+  background-color: transparent;
+}
