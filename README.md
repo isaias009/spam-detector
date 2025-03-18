@@ -20,3 +20,15 @@ chmod +x setup.sh
 source venv/bin/activate
 python app.py
 ```
+
+## Anexos
+
+![Presentacion]([https://example.com/path/to/image.jpg](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/1.png))
+
+![Formulario de examinador](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/2.png)
+
+![Correccion de resultado](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/3.png)
+
+![Subir data set](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/4.png)
+
+![Procesos internos en consola](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/5.png)
