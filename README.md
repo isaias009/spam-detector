@@ -23,7 +23,7 @@ python app.py
 
 ## Anexos
 
-![Presentacion]([https://example.com/path/to/image.jpg](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/1.png))
+![Presentacion](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/1.png)
 
 ![Formulario de examinador](https://raw.githubusercontent.com/isaias009/spam-detector/refs/heads/main/static/img/screenshot/2.png)
 
