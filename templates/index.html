@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramienta Spam</title>
+  
+  <link rel="stylesheet" href="/static/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="shortcut icon" href="/static/img/email-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/static/css/normalize.css">
+  <link rel="stylesheet" href="/static/css/general.css">
+  <link rel="stylesheet" href="/static/css/styles.css">
+  <link rel="stylesheet" href="/static/css/spiner.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="/static/js/menu.js"></script>
+  <script defer src="/static/js/spiner.js"></script>
+</head>
+<body>
+  
+  <header class="main-header">
+    <h1 class="title-project">
+      <i class="fa-solid fa-shield-halved"></i>
+      Spam Detector
+      <span class="subtitle">Sistema Inteligente de Detección</span>
+    </h1>
+  </header>
+
+  <section class="contenedor">
+
+    <nav class="menu">
+      <a href="/?page=home" id="link-home" class="menu-item"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a href="/?page=msg" id="link-msg" class="menu-item"><i class="fa-solid fa-comment"></i> Examinar correo</a>
+      <a href="/?page=collection" id="link-collection" class="menu-item"><i class="fa-solid fa-comments"></i> Examinar correos</a>
+      <a href="/?page=data" id="link-data" class="menu-item"><i class="fa-solid fa-database"></i> Dataset</a>
+    </nav>
+
+    <section class="show-option" id="content">
+      <div class="contendor-home" id="contendor-home">
+        <h2>Detector de Spam para Correos Electrónicos</h2>
+        
+        <h3>Objetivo</h3>
+        <p>
+          Detectar spam en correos electrónicos mediante redes neuronales con alta precisión.
+        </p>
+      
+        <h3>Características</h3>
+        <ul>
+          <li>Dataset multilingüe (inglés/español) para entrenamiento</li>
+          
+          <li>Red neuronal optimizada para clasificación de spam</li>
+      
+          <li>Interfaz web para análisis individual de correos</li>
+      
+          <li>Clasificación automática con aprendizaje continuo</li>
+      
+          <li>Alta precisión y usabilidad mejorada</li>
+        </ul>
+      </div>
+
+
+      <div class="contendor-app" id="contendor-app">
+        {% if data %}
+          <form class="form-app" action="/message/cancel" method="post">
+            <button type="submit">Cancelar</button>
+          </form>
+        {% endif %}
+
+        {% for item in data %}
+          <ul class="mensajes-list">
+            <li class="msg">
+              {% if item.res %}
+                <p class="status spam">Spam</p>
+              {% else %}
+                <p class="status ham">No Spam</p>
+              {% endif %}
+
+              <p class="date">{{ item.fecha }}</p>
+              <p>{{ item.msg }}</p>
+              <div class="msg-option">
+                <form action="/messages/add" method="post">
+                  <input type="hidden" name="datatype" value="data" />
+                  {% if item.res %}
+                    <input type="hidden" name="tag" value="spam" />
+                  {% else %}
+                    <input type="hidden" name="tag" value="ham" />
+                  {% endif %}
+                  <input type="hidden" name="msg" value="{{ item.msg }}" />
+                  <input type="hidden" name="res" value="correct" />
+                  <button type="submit" class="btn-check">Correcto</button>
+                </form>
+
+                <form action="/messages/add" method="post">
+                  <input type="hidden" name="datatype" value="data" />
+                  {% if item.res %}
+                    <input type="hidden" name="tag" value="spam" />
+                  {% else %}
+                    <input type="hidden" name="tag" value="ham" />
+                  {% endif %}
+                  <input type="hidden" name="msg" value="{{ item.msg }}" />
+                  <input type="hidden" name="res" value="incorrect" />
+                  <button type="submit" class="btn-wr">Incorrecto</button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        {% endfor %}
+
+        {% if not data %}
+          <form class="form-app" action="/message" id="form1" method="post">
+            <input type="text" id="msg" name="msg" placeholder="Ingresar mensaje de correo electronico" autocomplete="off" required>
+            <button type="submit">Evaluar</button>
+          </form>
+        {% endif %}
+        
+      </div>
+
+
+      <div class="contendor-app" id="contendor-mensajes">
+
+        {% if collection %}
+          <form class="form-app" action="/message/collection/cancel" method="post">
+            <button type="submit">Cancelar</button>
+          </form>
+        {% endif %}
+
+        {% for item in collection %}
+          <ul class="mensajes-list">
+            <li class="msg">
+              {% if item.res %}
+                <p class="status spam">Spam</p>
+              {% else %}
+                <p class="status ham">No Spam</p>
+              {% endif %}
+
+              <p class="date">{{ item.fecha }}</p>
+              <p>{{ item.msg }}</p>
+              <div class="msg-option">
+                <form action="/messages/add" method="post">
+                  <input type="hidden" name="datatype" value="collection" />
+                  {% if item.res %}
+                    <input type="hidden" name="tag" value="spam" />
+                  {% else %}
+                    <input type="hidden" name="tag" value="ham" />
+                  {% endif %}
+                  <input type="hidden" name="msg" value="{{ item.msg }}" />
+                  <input type="hidden" name="res" value="correct" />
+                  <button type="submit" class="btn-check">Correcto</button>
+                </form>
+
+                <form action="/messages/add" method="post">
+                  <input type="hidden" name="datatype" value="collection" />
+                  {% if item.res %}
+                    <input type="hidden" name="tag" value="spam" />
+                  {% else %}
+                    <input type="hidden" name="tag" value="ham" />
+                  {% endif %}
+                  <input type="hidden" name="msg" value="{{ item.msg }}" />
+                  <input type="hidden" name="res" value="incorrect" />
+                  <button type="submit" class="btn-wr">Incorrecto</button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        {% endfor %}
+
+
+        {% if not collection %}
+        <form class="form-app" action="/message/collection" id="form2" method="post">
+          <textarea type="text" name="msg" placeholder='Ingresar mensajes de correo electronico en colleccion, ejemplo:
+
+["ejemplo 1", "ejemplo 2, "ejemplo 3", ....]
+          ' required pattern="^\[[\s\S]*\]$"></textarea>
+          <button type="submit">Evaluar</button>
+        </form>
+        {% endif %}
+
+      </div>
+
+
+      <div class="contendor-app" id="contendor-data">
+        <form class="form-app" action="/cargar-archivo" method="post" enctype="multipart/form-data">
+          <input type="file" name="archivo" accept=".csv" required />
+          <button type="submit">Subir Data</button>
+        </form>
+
+        <table class="table-dataset">
+            <tr>
+                <th>Dataset</th>
+                <th>Datos</th>
+                <th>Fecha de registro</th>
+                <th></th>
+            </tr>
+            {% for archivo in archivos %}
+            <tr>
+                <td>{{ archivo.nombre }}</td>
+                <td>{{ archivo.filas }}</td>
+                <td>{{ archivo.fecha_registro.strftime('%d de %B del %Y, %H:%M') }}</td>
+                <td>
+
+                  {% if archivo.estado %}
+                    <p class="btn-select-selected"><i class="fa-solid fa-circle-check"></i></p>
+                  {% else  %}
+                    <form action="{{ url_for('actualizar_estado', id=archivo.id) }}" method="POST">
+                      <button type="submit" class="btn-select"><i class="fa-regular fa-circle-check"></i></button>
+                    </form>
+
+                    <form action="/eliminar/{{ archivo.id }}" method="post">
+                      <button type="submit" class="btn-select-del" onclick="return confirm('¿Estás seguro de eliminar este archivo?')"><i class="fa-solid fa-trash-can"></i></button>
+                    </form>
+                  {% endif  %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+      </div>
+
+    </section>
+
+  </section>
+
+
+  <div id="spinner-overlay">
+    <div id="spinner">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p>Evaluando mensaje de correo electrónico</p>
+    </div>
+  </div>
+  
+
+</body>
+</html>
