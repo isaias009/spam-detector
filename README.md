@@ -13,13 +13,29 @@ Este proyecto implementa un detector de spam que analiza textos para determinar 
 
 1. Clona este repositorio:
 ```bash
-git clone <url-del-repositorio>
-cd spam-detector
-chmod +x setup.sh
-./setup.sh
-source venv/bin/activate
-python app.py
+git clone https://github.com/isaias009/spam-detector.git
 ```
+
+2. Ingresa a la carpeta del proyecto:
+```bash
+cd spam-detector
+```
+
+3. Permisos de ejecucion a setup:
+```bash
+chmod +x setup.sh
+```
+
+3. Ejecutar setup:
+```bash
+./setup.sh
+```
+
+4. Activar el venv e iniciar la aplicacion:
+```bash
+source venv/bin/activate && python app.py
+```
+
 
 ## Anexos
 
